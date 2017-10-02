@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>Calling a function from within another function</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- hide script contents from old browsers
+
+function makeBar() {
+  var output = "<HR ALIGN='left' WIDTH=400>"
+  document.write(output)
+}
+
+function makeHeader(text, color, size) {
+  var output = "<FONT COLOR='" + color + "' SIZE=" +
+  size + ">" + text + "</FONT>"
+  makeBar()
+ document.write(output)
+  makeBar()
+}
+
+makeHeader("JavaScript Examples", "red", "+4")
+
+// end hiding contents from old browsers  -->
+</SCRIPT>
+</HEAD>
+<BODY>
+</BODY>
+</HTML>

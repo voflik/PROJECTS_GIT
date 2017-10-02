@@ -1,0 +1,295 @@
+<html>
+
+  <head>
+ <script type="javascript" src="http://ckeditor/ckeditor.js"></script> 
+<meta property="og:title" content="photo gallery" />
+<meta property="og:type" content="site" />
+<meta property="og:url" content="93.152.182.156" />
+<meta property="og:image" content="" />
+<meta property="og:site_name" content="InfectioN Development" />
+<meta property="fb:admins" content="1727709429" />
+    <title>Photo Gallery</title>
+    <link href="stylesheets/main.css" media="all" rel="stylesheet" type="text/css" />
+<style>
+html { height: 100%; 
+width: 100%; 
+}
+
+body { height: 100%; 
+width: 100%; 
+margin: 0; 
+padding: 0; 
+border: 0; 
+background: #FFFFFF;
+ font: 13px/15px Verdana,Arial,Helvetica,sans-serif; 
+ }
+img {
+ border: none; 
+ }
+table, tr, td, tr { 
+border-collapse: collapse; 
+vertical-align: top; 
+text-align: left;
+font: 13px/15px Verdana,Arial,Helvetica,sans-serif; 
+}
+a {
+color: #1A446C;
+ }
+
+#header {
+	height: 70px;
+	text-align: center;
+	background: #006600;
+	color: #D4E6F4;
+	font-style: oblique;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	background-color: #006600;
+}
+#header h1 { 
+padding: 1em; 
+margin: 0 ;
+}
+
+/* Note: IE 5 & 6 won't understand min-height */
+#main {
+min-height: 600px; 
+background: #EEE4B9; 
+padding: 2em;
+}
+
+#footer { 
+height: 2em; 
+padding: 1em; 
+text-align: center; 
+background: #006600;
+background-color:#006600;  
+color: #D4E6F4; 
+}
+
+table.bordered tr th, table.bordered tr td { 
+border-collapse:collapse;
+
+ 
+}
+.message {
+background: red;
+text-align: center;
+color: white;
+}
+#pagination {
+color: #1A446C;
+}
+#pagination .selected {
+font-weight: bold;
+color: #8D0D19;
+}
+.logger {
+
+width: 450px;
+margin-top:-25;
+margin-left:10px;
+left: 50px;
+height:inherit;
+
+
+}
+
+.register {
+
+width: 450px;
+margin-top:-25;
+margin-right:-200px;
+right: 50px;
+height:inherit;
+}
+
+
+.belt { 
+position: relative;
+height: 36px; 
+text-align: center; 
+background: #7a6a6a; 
+color: #D4E6F4;
+border-top-width:medium;
+border-top-color:#D4E6F4;
+border-top-style:solid;
+border-bottom-color:#333333;
+border-bottom-style:solid;
+border-bottom-width:thin;
+
+
+}
+#buttons{
+    height: 20px;
+    width: 639px;
+    float: right;
+	border-radius: 5px;
+}
+
+#buttons ul {
+    padding-left: 0px;
+	border-radius: 5px;
+	
+}
+
+#buttons li {
+    display: inline;
+	border-radius: 5px;
+	
+}
+
+#buttons a {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    float: left;
+    width: 19%;
+    height: 20px;
+    padding-top: -30px;
+	border-radius: 5px;
+	border:1px dotted black;
+
+}
+
+#buttons a:hover, .active {
+    height: 20px;
+	background-color: #D4E6F4;
+    background-repeat:no-repeat;
+    background-position:center;
+	font-size:18px;
+	color: #006600;
+	border-radius: 5px;
+	border:none;
+}
+.left {
+width:104px;
+height:20px;
+border:1px dotted black;
+display:inline;
+
+float: left;
+border-radius: 5px;
+margin: 12 0 0 9;
+
+</style>
+
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=413640088701769";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Photo Gallery : ADMIN</h1>
+	  	<div class="logger"> 
+			<div class="fb-like" data-href="http://93.152.182.156" data-send="true" data-width="450" data-show-faces="true"></div>
+		</div>
+
+		
+    </div>
+	<div class="belt">
+		<div id="buttons">
+			<ul>
+				<li><a href="index.php">HOME</a></li>
+				<li><a href="photo_upload.php">UPLOAD</a></li>
+				<li><a href="create_user.php">REGISTER</a></li>
+								<li><a href="logout.php">LOGOUT</a></li>
+								<li></li>
+			</ul>
+			
+		</div>
+		
+		
+	</div>
+    <div id="main">
+<h2>Posts</h2>
+
+<table class="bordered" style="margin:10px 0px 10px 0px; border-top: 1px solid black;">
+  <tr>
+    <th>Id</th>
+    <th>Post</th>
+    <th>Data</th>
+    <th>Created</th>
+    <th>Type</th>
+	<th>Comments</th>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+  </tr>
+  <tr>
+    
+    <td>1</td>
+    <td>this is only for testing purposes</td>
+    <td>now</td>
+    <td></td>
+	<td></td>
+		<td>
+			<a href="comments.php?id=<br />
+<b>Notice</b>:  Trying to get property of non-object in <b>C:\xampp\htdocs\gallery\public\admin\posting.php</b> on line <b>70</b><br />
+">
+				1			</a>
+		</td>
+		<td><a href="delete_post.php?id=<br />
+<b>Notice</b>:  Trying to get property of non-object in <b>C:\xampp\htdocs\gallery\public\admin\posting.php</b> on line <b>74</b><br />
+">Delete</a></td>
+  </tr>
+  <tr>
+    
+    <td>2</td>
+    <td>Second test comment(posting comment) dgv;eslkmbwtrbnewrgbte
+rgnetynhen
+enetynjehymryjmrtmdgtrnetnh
+ethnethnetrhncernyceycnetnycbet
+etcynertcnetnccetcntncet
+tnycnnybctynjucrynhbgfvdcsgbfhn
+ethmnbgfvgthnjmtkjnhyrdbgfv</td>
+    <td>now now</td>
+    <td></td>
+	<td></td>
+		<td>
+			<a href="comments.php?id=<br />
+<b>Notice</b>:  Trying to get property of non-object in <b>C:\xampp\htdocs\gallery\public\admin\posting.php</b> on line <b>70</b><br />
+">
+				1			</a>
+		</td>
+		<td><a href="delete_post.php?id=<br />
+<b>Notice</b>:  Trying to get property of non-object in <b>C:\xampp\htdocs\gallery\public\admin\posting.php</b> on line <b>74</b><br />
+">Delete</a></td>
+  </tr>
+  <tr>
+    
+    <td>3</td>
+    <td>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
+    <td>cpqda</td>
+    <td></td>
+	<td></td>
+		<td>
+			<a href="comments.php?id=<br />
+<b>Notice</b>:  Trying to get property of non-object in <b>C:\xampp\htdocs\gallery\public\admin\posting.php</b> on line <b>70</b><br />
+">
+				1			</a>
+		</td>
+		<td><a href="delete_post.php?id=<br />
+<b>Notice</b>:  Trying to get property of non-object in <b>C:\xampp\htdocs\gallery\public\admin\posting.php</b> on line <b>74</b><br />
+">Delete</a></td>
+  </tr>
+
+</table><div id="pagination" style="clear: both;">
+
+ <span class="selected">1</span>  <a href="posting.php?page=2">2</a>  <a href="posting.php?page=3">3</a>  <a href="posting.php?page=4">4</a>  <a href="posting.php?page=2"><img src="next.png"/></a></div>
+<br />
+<a href="photo_upload.php">Upload a new photograph</a>
+
+    </div>
+    <div id="footer">Copyleft 2013, InfectioN Development</div>
+  </body>
+</html>

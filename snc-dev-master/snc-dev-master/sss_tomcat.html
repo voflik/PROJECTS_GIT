@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<meta property="og:image" content="https://www.mulesoft.com/sites/all/themes/mulesoft/logo.png" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IEMobile 7]><html class="iem7"  lang="en" dir="ltr"><![endif]-->
+<!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7"  lang="en" dir="ltr"><![endif]-->
+<!--[if (IE 7)&(!IEMobile)]><html class="lt-ie9 lt-ie8"  lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"  lang="en" dir="ltr"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html  lang="en" dir="ltr"xmlns:fb="http://ogp.me/ns/fb#"
+  xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <title>A Simple, Step-By-Step Guide To Apache Tomcat SSL Configuration | MuleSoft</title>
+    <meta charset="utf-8" />
+<meta property="dcterms.type" content="Text" />
+<link rel="shortlink" href="http://www.mulesoft.com/node/1017" />
+<meta property="dcterms.format" content="text/html" />
+<meta property="og:type" content="article" />
+<link rel="shortcut icon" href="http://www.mulesoft.com/sites/all/themes/mulesoft/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta property="og:url" content="http://www.mulesoft.com/tomcat-ssl" />
+<meta property="og:site_name" content="MuleSoft" />
+<link rel="canonical" href="http://www.mulesoft.com/tomcat-ssl" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<meta property="dcterms.title" content="A Simple, Step-By-Step Guide To Apache Tomcat SSL Configuration" />
+<link rel="canonical" href="/tomcat-ssl" />
+<meta property="dcterms.date" content="2010-01-21T15:23-08:00" />
+<meta property="dcterms.identifier" content="http://www.mulesoft.com/tomcat-ssl" />
+<meta property="dcterms.creator" content="Amelia" />
+<meta property="dcterms.language" content="und" />
+<meta property="og:title" content="A Simple, Step-By-Step Guide To Apache Tomcat SSL Configuration" />
+      <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=1100" />
+    <meta http-equiv="cleartype" content="on" />
+
+  <link type="text/css" rel="stylesheet" href="http://www.mulesoft.com/sites/default/files/css/css_keuW57vthkExC_0SMv1v-wQ2DSxWy9m5Fcr9GMLoM28.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.mulesoft.com/sites/default/files/css/css_G60VWYcjRYMsUsXw8kxaGKf6dso5-SIlP6sEegeu4-w.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.mulesoft.com/sites/default/files/css/css_kKWVoh6LKHSOxBh_dVKdRCBpUARTX9RZG8ojal_Kyck.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.mulesoft.com/sites/default/files/css/css_r1XOQ424Z2rISWgQ5nuVuqIjCZIMEIe9ee-hq7xbT-o.css" media="all" />
+  <script src="http://www.mulesoft.com/sites/default/files/js/js_3jHghlMLrjr9xXAC0JufqSSch3oAbkZstSqYdc4uuck.js"></script>
+<script src="http://www.mulesoft.com/sites/default/files/js/js_6H2diZrEdO5x_55moGzjMXxChvmya8KMiTyLYIzTpPQ.js"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\u002F", "pathPrefix":"", "ajaxPageState":{"theme":"mulesoft", "theme_token":"RhHIrXXHTWNLQcgj6QvTK3AFZg72hVwtk3jn-sc40D8", "js":{"misc\u002Fjquery.js":1, "misc\u002Fjquery.once.js":1, "misc\u002Fdrupal.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.min.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fmodernizr.custom.28468.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.bpopup.min.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.fancybox.pack.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.sliderkit.1.9.2.pack.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fhelpers\u002Fjquery.fancybox-buttons.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fhelpers\u002Fjquery.fancybox-media.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fhelpers\u002Fjquery.fancybox-thumbs.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.cookie.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.easing.1.3.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002FeasySlider1.7.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fmosaic.1.0.1.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.menu.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.vticker.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.qtip-1.0.0-rc3.min.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fatemay.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.spritely-0.6.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fjquery.da-slider.js":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Feffects.js":1}, "css":{"modules\u002Fsystem\u002Fsystem.base.css":1, "modules\u002Fsystem\u002Fsystem.menus.css":1, "modules\u002Fsystem\u002Fsystem.messages.css":1, "modules\u002Fsystem\u002Fsystem.theme.css":1, "modules\u002Faggregator\u002Faggregator.css":1, "modules\u002Fcomment\u002Fcomment.css":1, "sites\u002Fall\u002Fmodules\u002Fdate\u002Fdate_api\u002Fdate.css":1, "sites\u002Fall\u002Fmodules\u002Fdate\u002Fdate_popup\u002Fthemes\u002Fdatepicker.1.7.css":1, "sites\u002Fall\u002Fmodules\u002Fdate\u002Fdate_repeat_field\u002Fdate_repeat_field.css":1, "modules\u002Ffield\u002Ftheme\u002Ffield.css":1, "modules\u002Fnode\u002Fnode.css":1, "modules\u002Fsearch\u002Fsearch.css":1, "modules\u002Fuser\u002Fuser.css":1, "sites\u002Fall\u002Fmodules\u002Fviews\u002Fcss\u002Fviews.css":1, "sites\u002Fall\u002Fmodules\u002Fckeditor\u002Fckeditor.css":1, "sites\u002Fall\u002Fmodules\u002Fctools\u002Fcss\u002Fctools.css":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fsystem.menus.css":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fcss\u002Fstyle.css":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fcss\u002Fmenu.css":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fcss\u002Fproducts.css":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fcss\u002Fsliderkit-core.css":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fcss\u002Fda-slider.css":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fcss\u002Fjquery.fancybox.css":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fhelpers\u002Fjquery.fancybox-buttons.css":1, "sites\u002Fall\u002Fthemes\u002Fmulesoft\u002Fjs\u002Fhelpers\u002Fjquery.fancybox-thumbs.css":1}}});</script>
+    <!--[if lt IE 9]>
+    <script src="/sites/all/themes/zen/js/html5-respond.js"></script>
+    <![endif]-->
+  
+<!--start: kissmetrics script-->
+<script type="text/javascript">
+      var _kmq = _kmq || [];
+      var _kmk = _kmk || '72f95fe62e8491759a3c96d60896bb692a0de91b';
+      function _kms(u){
+        setTimeout(function(){
+          var d = document, f = d.getElementsByTagName('script')[0],
+          s = d.createElement('script');
+          s.type = 'text/javascript'; s.async = true; s.src = u;
+          f.parentNode.insertBefore(s, f);
+        }, 1);
+      }
+      _kms('//i.kissmetrics.com/i.js');
+      _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+</script>
+<!--End: kissmetrics script-->
+
+<!--start: optimizely script-->
+<script src="//cdn.optimizely.com/js/58710519.js"></script>
+<!--End: optimizely script-->
+
+<!-- XSS script to sycronize username with .org website and add to kissmetric. By Mulesoft Devops-->
+<script type="text/javascript">
+      $(function() {
+         var domain = "http://www.mulesoft.org/"
+         var url    = location.href;
+         var env    = url.indexOf('://www') != -1 ? "www" : "stage"; 
+         var uri    = "sites/all/themes/mulesoft_community/xss/xss.php?v=1&env="+env;
+         var ifrm = document.createElement("iframe");
+         ifrm.setAttribute("name", "xss");
+         ifrm.setAttribute("id", "xss");
+         ifrm.setAttribute("src", domain+uri);
+         ifrm.setAttribute("scrolling", "no");
+         ifrm.setAttribute("frameborder", "0");
+         ifrm.setAttribute("width", "0");
+         ifrm.setAttribute("height", "0");
+         ifrm.setAttribute("style", "height:0px;width:0px;border:0px;padding:0px;margin:0px;");
+         ifrm.style.width.value = "0px";
+         ifrm.style.height.value = "0px";
+         document.body.appendChild(ifrm);
+      });
+      var uid = ""; 
+      var xss = function (json) {
+            if(uid==""){
+               uid =  (json && json.uid!="") ? json.uid : "";
+               if(uid!="")
+                  _kmq.push(['identify', uid]);
+              return true;
+          }
+      }
+</script> 
+<!--End: XSS script-->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-1017 node-type-tcat-resources section-tomcat-ssl" >
+       
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-SP2R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-SP2R');</script>
+<!-- End Google Tag Manager -->
+<div class="wrapper">
+<div id="general">
+<div id="page">
+  <div id="header">
+    <a href="/" class="logo">MuleSoft - connecting the new enterprise</a>
+
+    <div class="search">
+      <form action="/search-results" id="cse-search-box">
+          <input type="hidden" name="cx" value="009167469708926298605:hwtkd-ufwfq" />
+          <input type="hidden" name="cof" value="FORID:10" />
+          <input type="hidden" name="ie" value="UTF-8" />
+          <input type="text" name="as_q" autocomplete="on" size="10" class="searchfield" value="Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;" />
+          <input type="submit" text="" value="" class="searchbutton"/>
+      </form>
+    </div> <!-- search -->
+      <div class="region region-header">
+    <div id="block-block-183" class="block block-block first last odd">
+
+      
+  <div class="submenu">
+      <ul>
+        <li class="first"><a href="http://www.mulesoft.org" target="_blank">Community</a></li>
+        <li><a href="http://blogs.mulesoft.org" target="_blank">Blog</a></li>
+        <li><a href="http://www.apihub.com/" target="_blank">APIhub</a></li>
+        <li><a href="/support-login">Support login</a></li>
+        <li class="last">Contact 1-866-228-9989</li>
+      </ul>
+    </div> <!-- submenu -->
+
+    <div class="menu" id="nav-menu">
+<ul class="nav"><li class="first expanded"><a href="/enterprise-integration-platform" title="Products">Products</a><ul class="nav"><li class="first expanded"><span class="title_first nolink">Platform</span><ul class="nav"><li class="first leaf"><a href="/enterprise-integration-platform" class="child">Anypoint Platform</a></li>
+<li class="leaf"><a href="/cloudhub/ipaas-cloud-based-integration-demand" title="CloudHub">CloudHub</a></li>
+<li class="last leaf"><a href="/mule-esb-open-source-esb" title="Mule ESB" class="child">Mule ESB</a></li>
+</ul></li>
+<li class="expanded"><span class="title nolink">Connectivity</span><ul class="nav"><li class="first last leaf"><a href="/cloud-connectors-full" title="Connectors landing page">Anypoint connectors</a></li>
+</ul></li>
+<li class="expanded"><span class="title nolink">Development</span><ul class="nav"><li class="first leaf"><a href="/mule-studio" title="Mule Studio" class="child">Mule Studio</a></li>
+<li class="last leaf"><a href="/datamapper" title="DataMapper" class="child">Anypoint DataMapper</a></li>
+</ul></li>
+<li class="expanded"><span class="title nolink">Management and Governance</span><ul class="nav"><li class="first leaf"><a href="/anypoint-service-registry" class="child">Anypoint Service Registry</a></li>
+<li class="leaf"><a href="/management-console-mule-esb" class="child">Mule Enterprise Management</a></li>
+<li class="last leaf"><a href="/mule-enterprise-security" title="Anypoint Enterprise Security" class="child">Anypoint Enterprise Security</a></li>
+</ul></li>
+<li class="last expanded"><span class="title nolink">Enterprise Apache Tomcat</span><ul class="nav"><li class="first last leaf"><a href="/tcat-leading-enterprise-apache-tomcat-application-server" title="Tcat - enterprise Tomcat" class="child">Tcat - enterprise Tomcat</a></li>
+</ul></li>
+</ul></li>
+<li class="expanded"><a href="/integration-solutions" title="Solutions">Solutions</a><ul class="nav"><li class="first expanded"><span class="title_first nolink">Solutions by industry</span><ul class="nav"><li class="first leaf"><a href="/mulesoft-healthcare" class="child">Healthcare</a></li>
+<li class="leaf"><a href="/mulesoft-government" title="Government" class="child">Government</a></li>
+<li class="leaf"><a href="/mulesoft-digital-media" title="Media" class="child">Media</a></li>
+<li class="leaf"><a href="/mulesoft-e-commerce" title="E-Commerce" class="child">E-Commerce</a></li>
+<li class="leaf"><a href="/mulesoft-retail" title="Retail" class="child">Retail</a></li>
+<li class="last leaf"><a href="/mulesoft-insurance-solutions" title="Insurance" class="child">Insurance</a></li>
+</ul></li>
+<li class="last expanded"><span class="title nolink">Solutions by use case</span><ul class="nav"><li class="first leaf"><a href="/soa-architecture" title="SOA architecture" class="child">SOA architecture</a></li>
+<li class="leaf"><a href="/legacy-system-modernization" title="Legacy modernization" class="child">Legacy modernization</a></li>
+<li class="leaf"><a href="/order-processing" title="Order processing" class="child">Order processing</a></li>
+<li class="leaf"><a href="/sap-integration-solutions" title="SAP Integration" class="child">SAP Integration</a></li>
+<li class="last leaf"><a href="/cloudhub/salesforce-integration-solutions" title="Salesforce Integration" class="child">Salesforce Integration</a></li>
+</ul></li>
+</ul></li>
+<li class="expanded"><a href="/support-and-services" title="Support &amp; Services">Services</a><ul class="nav"><li class="first leaf"><a href="/mule-esb-support-esb-licence-subscription" title="Mule ESB Enterprise Support">Mule ESB Support</a></li>
+<li class="leaf"><a href="/tomcat-support" title="Tcat &amp; Tomcat support">Tcat &amp; Tomcat support</a></li>
+<li class="leaf"><a href="/consulting" title="Consulting">Consulting</a></li>
+<li class="leaf"><a href="http://training.mulesoft.com/" title="Training">Training</a></li>
+<li class="last leaf"><a href="/support-login" title="Support login">Support login</a></li>
+</ul></li>
+<li class="expanded"><a href="/resources" title="Resources">Resources</a><ul class="nav"><li class="first leaf"><a href="/webinars" title="">Webinars</a></li>
+<li class="leaf"><a href="/case-studies" title="">Case Studies</a></li>
+<li class="last expanded"><a href="/resources/articles">Articles</a><ul class="nav"><li class="first leaf"><a href="/resources/esb-integration" title="ESB &amp; Integration">Enterprise Integration</a></li>
+<li class="leaf"><a href="/resources/saas-integration-best-practices" title="">SaaS Integration Best Practices</a></li>
+<li class="leaf"><a href="/resources/saas-integration">SaaS Integration Resources</a></li>
+<li class="leaf"><a href="/resources/hybrid-integration" title="">Hybrid Integration</a></li>
+<li class="leaf"><a href="/resources/what-is-soa" title="">SOA Resources</a></li>
+<li class="last leaf"><a href="/resources/understanding-apache-tomcat">Apache Tomcat</a></li>
+</ul></li>
+</ul></li>
+<li class="expanded"><a href="/mulesoft-partners">Partners</a><ul class="nav"><li class="first last leaf"><a href="/mulesoft-partners">Partner Program</a></li>
+</ul></li>
+<li class="last expanded"><a href="/company" title="Company">Company</a><ul class="nav"><li class="first leaf"><a href="/company" title="">About</a></li>
+<li class="leaf"><a href="/connecting-new-enterprise">New Enterprise</a></li>
+<li class="leaf"><a href="/customers" title="Customers">Customers</a></li>
+<li class="leaf"><a href="/team" title="Leadership">Leadership</a></li>
+<li class="leaf"><a href="/investors" title="Investors">Investors</a></li>
+<li class="leaf"><a href="/mulesoft-awards" title="Awards">Awards</a></li>
+<li class="leaf"><a href="/events" title="">Events</a></li>
+<li class="leaf"><a href="/press-center" title="">News</a></li>
+<li class="leaf"><a href="/careers" title="Careers">Careers</a></li>
+<li class="last leaf"><a href="/contact" title="Contact">Contact</a></li>
+</ul></li>
+</ul></div>
+<!-- menu -->
+</div><!-- /.block -->
+  </div><!-- /.region -->
+  </div>
+<!-- header -->
+
+  <div id="block-block-267" class="block block-block first odd">
+
+      
+  <div id="breadcrumbs_container">
+<div id="breadcrumbs" class="inner">
+                <h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-separator">&nbsp;&#8250;&nbsp;</span><a href="/tomcat-ssl" class="active">A Simple, Step-By-Step Guide To Apache Tomcat SSL Configuration</a></div>            </div>
+            <!-- breadcrumbs -->
+</div>
+</div><!-- /.block -->
+    <div id="content" role="main">
+      <a id="main-content"></a>
+                              
+
+
+<div id="text">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><h1>
+	A Simple Step-By-Step Guide To Apache Tomcat SSL Configuration</h1>
+<p>Secure Socket Layer (SSL) is a protocol that provides <a href="/tomcat-security">security</a> for communications between client and server by implementing encrypted data and certificate-based authentication. Technically, the term "SSL" now refers to the Transport Layer ouSecurity (TLS) protocol, which is based on the original SSL specification.</p>
+<p>SSL is one of the most common ways of integrating secure communication on the internet, as it is a mature protocol that is well-supported by every major browser and a number of well-respected organizations provide third party SSL authentication services.</p>
+<p>If you're using Apache Tomcat, chances are that at least some of the data you're handling is sensitive, and SSL is an easy way to offer your users security. The good news is that Tomcat fully supports the SSL protocol. The bad news is that the configuration process and SSL itself can be a little confusing for first-time users.</p>
+<p>Don't worry! To help you get SSL working with your Tomcat servers, we've assembled a simple, comprehensive, step-by-step guide to using SSL with Tomcat. From an overview of <a href="#howitworks">how the protocol actually works</a>, to clear, simple <a href="#config">configuration instructions</a>, this guide will help you get SSL running on your server in no time.</p>
+<p><a href="/tcat">Tcat</a> eliminates tedious configuration tasks. Create the correct configuration a single time, save it to a server profile, and apply it to other instances (or groups of instances) with a single click. Try <a href="/tcat">Tcat</a> for free today!</p>
+<h2>
+	<a name="howitworks" id="howitworks"></a>How SSL Works</h2>
+<p>Before we start configuring Tomcat to use SSL, it will help to understand why the SSL protocol was created, and how it works. If you already know all this stuff and are just looking to get SSL working with <a href="/understanding-apache-tomcat">Apache Tomcat</a>, click here to jump to a step-by-step configuration guide.</p>
+<h3>
+	SSL Basics</h3>
+<p>The SSL protocol aims to provide solutions to two simple security problems:</p>
+<ol><li>
+		How can we securely transmit data between two parties in such a way that only the two parties can read it?</li>
+<li>
+		How can one (or more) of the parties involved prove that they are actually the entity we want to grant the ability to decrypt our encrypted transmission?</li>
+</ol><p>SSL's answer to the first question is encryption. Before transmitting any data, the sender encrypts its message, and the receiver must in turn decrypt the message before processing it. The encryption and decryption is accomplished through a method called "public key encryption."</p>
+<p>SSL's answer to the second question is also part of the answer to the first question. In order for public key encryption to provide secure communication, one more more of the communicating parties must have some way of proving to the other that they are, in fact, who they claim to be. SSL provides this proof by requiring that one or more of the parties present a digital certificate into the initial negotiation of the connection, prior to the transmission of any encrypted data. This process is called "handshaking."</p>
+<p>To ensure that the certificate is a valid proof of identity, SSL contacts a trusted third party server specified in the certificate, called a Certificate Authority (CA). A Certificate Authority is a trusted company that agrees to vouch for the identity of a site, usually for a fee. Generally, the more widely the CA is known as a reputable organization, the more they will charge you per year to verify your site's identity. Examples of well-respected CA's include <a href="http://www.verisign.com" rel="nofollow">Verisign</a> and <a href="http://www.digicert.com" rel="nofollow">Digicert</a>.</p>
+<h3>
+	HTTPS vs. HTTP</h3>
+<p>The most common way that SSL is integrated into Internet communications is through the HTTPS protocol. Calling HTTPS a "protocol" is not entirely accurate, as it is simply a combination of the HTTP and SSL protocols. When we say a message was sent using HTTPS, what we are actually saying is that the message was first encrypted using SSL, transmitted and received using normal HTTP protocol, and then decrypted by the receiver, also with SSL.</p>
+<p>So that's SSL in a (very basic) nutshell. To sum up:</p>
+<ul><li>
+		SSL offers security through encryption</li>
+<li>
+		the encryption process is made possible through the use of digital certificates verified by a third party Certificate Authority</li>
+<li>
+		the most common implementation of this process is the HTTPS combination protocol.</li>
+</ul><p>Looks good! Now, let's get SSL working with your Tomcat Server.</p>
+<h2>
+	<a name="config" id="config"></a>Using SSL With Tomcat</h2>
+<p><a href="/tomcat-configuration">Configuring Tomcat</a> to use SSL connections can be a bit tricky the first time around, but if you follow this step by step guide, you should it up and running in no time.</p>
+<h3>
+	When To Use SSL With Tomcat</h3>
+<p>Before you go through the trouble of getting SSL up and running, it's a probably a good idea to determine if you actually should be using this configuration. The most common reason you'd need to use Tomcat to handle SSL connections would be if you are running Tomcat as a stand-alone web server.</p>
+<p>In other words, if you're fronting Tomcat with a web server and using it only as an application server or <a href="/tomcat-servlet">Tomcat servlet</a> container, in most cases you should let the web server function as a proxy for all SSL requests.</p>
+<p>Why? Because all that decryption, encryption, and handshaking isn't free - actually, it's not just "not free," it's quite CPU-intensive, and it significantly slows down the speed of transmission. In other words, if you're already using a web server to serve your static content, you're better off letting it handle all that, freeing up your Tomcat server to focus on its specialty - quickly generating dynamic content, and allowing it to get that data to your web server as quickly as possible, in cleartext.</p>
+<p>If, however, your site is small enough that you don't need to mess around with an additional web server, then Tomcat will happily handle your SSL needs. Here's how to get it working.</p>
+<h2>
+	Configuring Tomcat To Use SSL</h2>
+<p>Setting up SSL for Tomcat can be pided into two main tasks: <a href="#keystore">creating a functional keystore</a>, and <a href="#configtomcat">configuring the Tomcat connectors and applications</a>. Let's tackle them one at a time.</p>
+<h3>
+	<strong><a name="keystore" id="keystore"></a>PART I - The Keystore</strong></h3>
+<h3>
+	Step 1 - Creating the Keystore</h3>
+<p>The keys Tomcat will use for SSL transactions are stored in a password-protected file called, creatively, the "keystore." The first step to enabling SSL on your server is to create and edit this file. You can create this file in one of two ways - by importing an existing key into the keystore, or by creating an entirely new key.</p>
+<p>In the interest of simplicity, this guide will only cover the latter (but you can find instructions for importing keys on Apache's <a href="http://tomcat.apache.org/tomcat-6.0-doc/ssl-howto.html" rel="nofollow">Tomcat Documentation site</a>).</p>
+<p>A program called keytool, which is included with your JDK, will do the actual work of creating your new keystore. To create a new keystore using this program, enter the following command at the command-line, substituting syntax appropriate for your OS:</p>
+<p>$JAVA_HOME/bin/keytool -genkey -alias [youralias] -keyalg RSA -keystore [/preferred/keystore/path]</p>
+<p>Use an [alias] and [path] of your choice.</p>
+<p>Next, keytool will ask you to enter the password you want to use for the keystore. Again, choose whatever you like (but don't forget it).</p>
+<p>After you choose the keystore password, you will enter the information required for the Certificate, such as your company and your name. Make sure this information is accurate, as you will have to submit this file to the Certificate Authority of your choice to obtain a certificate.</p>
+<p>The last thing keytool will ask you to specify is the key password, which is the password specific to this specific certificates. Rather than enter anything at this prompt, just press ENTER.</p>
+<p>This will cause keytool to set the key password to a value equivalent to the keystore password. Matching passwords are REQUIRED for Tomcat to access the certificate. If you choose two different passwords, any attempts to access the keystore will result in a crash (so don't do it).</p>
+<p>Congratulations - if you followed the directions correctly, you should now have a usable keystore file named [youralias], located in the directory you chose.</p>
+<h3>
+	Step 2 - Creating the Certificate Signing Request</h3>
+<p>Now that you've created your keystore, it's time to create a file called the Certificate Signing Request, or CSR, which will be used by the Certificate Authority of your choice to generate the Certificate SSL will present to other parties during the handshake.</p>
+<p>You can use the keytool to create this file, as well. To do so, enter the following at the command line:</p>
+<p>$JAVA_HOME/bin/keytool -certreq -keyalg RSA -alias [youralias] -file [yourcertificatname].csr -keystore [path/to/your/keystore]</p>
+<p>Substitute the values you chose earlier for the [placeholders].</p>
+<p>If you follow the instructions correctly, keytool will create a file called yourcertificatename.csr, which you can submit to the CA you've chosen via the process they provide on their website. Using this file, they will generate a custom certificate for your server, which you can download according to the instructions they provide on their website.</p>
+<h3>
+	Step 3 - Installing Your New Certificate</h3>
+<p>Getting tired yet? Don't worry - there's light at the end of the tunnel. This is the last thing you'll need to do to create a keystore for Tomcat to use. Well, the last two things. Hang in there!</p>
+<p>SSL verifies the authenticity of a site's certificate by using something called a "chain of trust," which basically means that during the handshake, SSL initiates an additional handshake with the Certificate Authority specified in your site's certificate, to verify that you haven't simply made up your own CA.</p>
+<p>In order to "anchor" your certificate's chain of trust, you have to download an additional certificate, called a "Root Certificate," from your CA, and then import both this certificate and your site's new certificate into your keystore. Your CA should provide information about obtaining a Root Certificate on their website.</p>
+<p>Once you've downloaded both your own Certificate and the Root certificate provided by your CA, import them into your keystore with the following commands, replacing the [placeholders]:</p>
+<p>To import the Root Certificate -</p>
+<p>keytool -import -alias root -keystore [path/to/your/keystore] -trustcacerts -file [path/to/the/root_certificate]</p>
+<p>To import your new Certificate -</p>
+<p>keytool -import -alias [youralias] -keystore [path/to/your/keystore] -file [path/to/your_keystore]</p>
+<p>Do everything right? Then pat yourself on the back - you are now the proud owner of a functional, certified keystore.</p>
+<h3>
+	<a name="configtomcat" id="configtomcat"></a>PART II - Configuring Tomcat to use SSL</h3>
+<p>Now that we have a functional keystore populated with valid certificates, it's time to configure Tomcat to use SSL. First, we'll configure Tomcat's SSL connectors, and then we'll specify which webapps we want to use SSL by default.</p>
+<h3>
+	Step 1 - Configuring Tomcat's SSL Connectors</h3>
+<p><a href="/tomcat-connector">Tomcat's global Connector </a> options are configured in Tomcat's main configuration file, "$CATALINA_BASE/conf/server.xml", so you should open this file now. The Connectors we are looking for connect on port 8443 by default, so search for this port, until you come across an entry that looks like this:</p>
+<pre>
+        </pre><p>&lt;!-- Define a SSL HTTP/1.1 Connector on port 8443</p>
+<p>This connector uses the JSSE configuration, when using APR, the</p>
+<p>connector should be using the OpenSSL style configuration</p>
+<p>described in the APR documentation --&gt;</p>
+<p>&lt;!--</p>
+<p>&lt;Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"</p>
+<p>maxThreads="150" scheme="https" secure="true"</p>
+<p>clientAuth="false" sslProtocol="TLS"/&gt;</p>
+<p>--&gt;</p>
+<p>You'll notice that the comment enclosing this connector talks about a choice between APR and JSSE configurations. This refers to the implementation of SSL you are intending to use. JSSE, which is Tomcat's default configuration, is supported by default, and included in all JDKs after version 1.4. So if you don't even know what APR is, you only need to uncomment this entry, and add some additional information to allow Tomcat to find your keystore:</p>
+<p>&lt;Connector port="8443" maxThreads="150" scheme="https" secure="true" SSLEnabled="true" keystoreFile="path/to/your/keystore" keystorePass="YourKeystorePassword" clientAuth="false" keyAlias="yourAlias" sslProtocol="TLS"/&gt;</p>
+<p>If, on the other hand, you know that using the Apache Portable Runtime (APR), also known as Tomcat's "native library," is by far the best practice to follow, especially when using Tomcat as a standalone web server (which you probably are), and have already installed it on your server, then you'll need to alter this entry as follows to allow Tomcat to use APR's OpenSSL implementation in place of JSSE, or trying to use SSL will generate an error:</p>
+<p>&lt;Connector port="8443" scheme="https" secure="true" SSLEnabled="true" SSLCertificateFile="/path/to/your/certificate.crt" SSLCertificateKeyFile="/path/to/your/keyfile" SSLPassword="YourKeystorePassword" SSLCertificateChainFile="path/to/your/root/certificate" keyAlias="yourAlias" SSLProtocol="TLSv1"/&gt;</p>
+<p>Notice that if you are using APR, the "SSLCertificateFile" and "SSLCertificateKey"-type attributes are used in place of the keystoreFile attribute. For more information on the differences between using APR in place of JSSE, consult <a href="http://tomcat.apache.org/tomcat-6.0-doc/apr.html" rel="nofollow">Apache's Tomcat APR Documentation</a>.</p>
+<p>Restart Tomcat. Once you're up and running again, test your configuration by connecting to a secure page, using a URL such as https://[yourhost]:8443. If you followed the directions correctly, you should be able to view the page over a secure HTTPS connection!</p>
+<h3>
+	Step 2 - Limiting SSL Usage</h3>
+<p>Enabling SSL in Tomcat's server.xml file causes all files to be run both as secure and insecure pages, which can cause unnecessary server load. You can choose which applications offer SSL connections on a per-application basis by adding the following &lt;security-constraint&gt; element to the application's WEB-INF/web.xml file:</p>
+<pre>
+        </pre><p>&lt;security-constraint&gt;</p>
+<p>&lt;web-resource-collection&gt;</p>
+<p>&lt;web-resource-name&gt;YourAppsName&lt;/web-resource-name&gt;</p>
+<p>&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</p>
+<p>&lt;/web-resource-collection&gt;</p>
+<p>&lt;user-data-constraint&gt;</p>
+<p>&lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;</p>
+<p>&lt;/user-data-constraint&gt;</p>
+<p>&lt;/security-constraint&gt;</p>
+<p>This configuration allows you to set SSL options for all an application's pages in one place. For example, to disable SSL for all your application's pages, change "CONFIDENTIAL" to "NONE".</p>
+<h2>
+	Additional Considerations</h2>
+<p>In the interest of simplicity, this guide does not cover all of the elements of SSL configuration (although they are covered extensively in Apache's Tomcat SSL Documentation). We will, however, provide you with a short list of other options and important areas of note to consider as you tweak your SSL configuration.</p>
+<h3>
+	Specifying Implementation</h3>
+<p>If you have configured connectors for both APR and JSSE, Tomcat will use APR by default if you have installed the native libraries. You can force it to use JSSE by modifying a Connector's "protocol" attribute as follows:</p>
+<pre>
+&lt;Connector protocol="org.apache.coyote.http11.HTTP11NioProtocol"&gt;</pre><p>If you want to force APR, you can do so with a similar edit:</p>
+<pre>
+&lt;Connector protocol="org.apache.coyote.http11.Http11AprProtocol"&gt;</pre><h3>
+	Common Errors Caused By Aliases and Passwords</h3>
+<p>If you encounter any errors with your SSL configuration, make sure that you have correctly entered settings such as keystore passwords and aliases. These values are case sensitive for some of the supported keystore formats.</p>
+</div></div></div></div><!-- block__no_wrapper -->
+<!-- region__no_wrapper -->
+                <div id="sidebar_right">  <div class="region region-right">
+    <div id="block-block-296" class="block block-block first odd">
+
+      
+  <div class="box_grey">
+<h3>
+		Next Steps</h3>
+<p>	<a class="green_button medium iframe" href="/misc/lbox-form.php">Download</a> <a class="grey_button medium" href="/tcat-server-enterprise-tomcat-application-server">Learn More</a></p></div>
+
+</div><!-- /.block -->
+<div id="block-block-321" class="block block-block even">
+
+      
+  <div class="box_grey">
+<h3>Share this page</h3>
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_twitter"></a>
+<a class="addthis_button_linkedin"></a>
+<a class="addthis_button_google_plusone_badge" g:plusone:size="medium" g:plusone:href="https://plus.google.com/115043409750342746557/posts"></a> 
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-510ffe656fe49d28"></script>
+<!-- AddThis Button END -->
+</div>
+</div><!-- /.block -->
+<div id="block-node-block-builder-resources-related-articles" class="block block-node-block-builder last odd">
+
+      
+  <div class="box_grey">
+  <h3>
+    Related Articles</h3>
+  <ul>
+      <li>
+        <a href="http://www.mulesoft.com/tomcat-deploy">Tomcat Deploy Procedures</a>
+      </li>
+          <li>
+        <a href="http://www.mulesoft.com/tomcat-wtp">Integrating Eclipse and Tomcat - WTP (Web Tools Platform) Plugin Guide </a>
+      </li>
+          <li>
+        <a href="http://www.mulesoft.com/tomcat-reload">Using Tomcat Reload Features To Speed Up Development</a>
+      </li>
+          <li>
+        <a href="http://www.mulesoft.com/tomcat-servlet">An Introduction to Tomcat Servlet Interactions</a>
+      </li>
+          <li>
+        <a href="http://www.mulesoft.com/tomcat-security">Improving Apache Tomcat Security - A Step By Step Guide</a>
+      </li>
+    </ul>
+</div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+        </div>
+                        <div class="push"></div>
+    </div><!-- /#content -->
+        <div id="subfooter">
+      <div class="inner">
+            <div class="region region-subfooter">
+    <div id="block-block-310" class="block block-block first last odd">
+
+      
+  <div class="box_a">
+<h3>
+		Next Steps</h3>
+<p>	<a class="green_button iframe" href="/misc/forms/download/tcat-lbox-form.php">Download</a> <a class="grey_button iframe" href="/misc/ask-an-expert-tcat.php">Ask an Expert</a></p></div>
+<div class="box_b">
+<h3>
+		Resources</h3>
+<ul><li>
+			<a href="/migrating-oracle-weblogic-tomcat">Migrating from WebLogic to Tomcat</a></li>
+<li>
+			<a href="/downloads/Migrating-from-Websphere-to-Tomcat-Mulesoft.pdf">Migrating from WebSphere to Tomcat</a></li>
+<li>
+			<a href="/understanding-apache-tomcat">Tomcat Resource Center</a></li>
+<li>
+			<a href="/tcat-server-resources">Tcat Resource Center</a></li>
+<li>
+			<a href="/tomcat-support">Tcat &amp; Apache Tomcat support</a></li>
+<li>
+			<a href="http://www.mulesoft.org/documentation/display/TCAT/Home">Documentation</a></li>
+</ul></div>
+<div class="box_c">
+	<a class="play fancybox-media video" href="http://www.youtube.com/watch?v=DoxIvsiv_bY&amp;fmt=22" rel="media-gallery">Why Tcat?</a> <img alt="" src="/sites/all/themes/mulesoft/images/subfooter-tcat.jpg" /></div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+      </div>
+    </div>
+    <div id="footer">
+    <div class="inner">
+          <footer id="footer" class="region region-footer">
+    <div id="block-block-182" class="block block-block first last odd">
+
+      
+  <div class="sitemap">
+<div class="box_links left">
+<h4>
+			Products</h4>
+<ul><li>
+				<a href="/enterprise-integration-platform">Anypoint Platform</a></li>
+<li>
+				<a href="/cloudhub/ipaas-cloud-based-integration-demand">CloudHub</a></li>
+<li>
+				<a href="/mule-esb-open-source-esb">Mule ESB</a></li>
+<li>
+				<a href="/cloud-connectors-full">Anypoint Connectors</a></li>
+<li>
+				<a href="/mule-studio">Mule Studio</a></li>
+<li>
+				<a href="/datamapper">Anypoint DataMapper</a></li>
+<li>
+				<a href="/anypoint-service-registry">Anypoint Service Registry</a></li>
+<li>
+				<a href="/managing-mule-esb-enterprise">Mule Enterprise Management</a></li>
+<li>
+				<a href="/mule-enterprise-security">Anypoint Enterprise Security</a></li>
+<li>
+				<a href="/tcat-leading-enterprise-apache-tomcat-application-server">Tcat - enterprise Tomcat</a></li>
+</ul></div>
+<div class="box_links left">
+<h4>
+			Solutions</h4>
+<ul><li>
+				<a href="/mulesoft-healthcare">Healthcare</a></li>
+<li>
+				<a href="/mulesoft-insurance-solutions">Insurance</a></li>
+<li>
+				<a href="/mulesoft-e-commerce">E-Commerce</a></li>
+<li>
+				<a href="/mulesoft-government">Government</a></li>
+<li>
+				<a href="/mulesoft-digital-media">Media</a></li>
+<li>
+				<a href="/mulesoft-retail">Retail</a></li>
+<li>
+				<a href="/soa-architecture">SOA architecture</a></li>
+<li>
+				<a href="/legacy-system-modernization">Legacy modernization</a></li>
+<li>
+				<a href="/order-processing">Order processing</a></li>
+<li>
+				<a href="/sap-integration">SAP integration</a></li>
+<li>
+				<a href="/cloudhub/salesforce-integration-solutions">Salesforce Integration</a></li>
+</ul></div>
+<div class="box_links left">
+<h4>
+			Services</h4>
+<ul><li>
+				<a href="/mule-esb-support-esb-licence-subscription">Mule ESB support</a></li>
+<li>
+				<a href="/tomcat-support">Tcat &amp; Tomcat support</a></li>
+<li>
+				<a href="/consulting">Consulting</a></li>
+<li>
+				<a href="/support-login">Support Login</a></li>
+<li>
+				<a href="http://training.mulesoft.com/">Training</a></li>
+</ul></div>
+<div class="box_links right narrow">
+<h4>
+			Company</h4>
+<ul><li>
+				<a href="/about">About</a></li>
+<li>
+				<a href="/connecting-new-enterprise">New Enterprise</a></li>
+<li>
+				<a href="/customers">Customers</a></li>
+<li>
+				<a href="/team">Leadership</a></li>
+<li>
+				<a href="/investors">Investors</a></li>
+<li>
+				<a href="/mulesoft-awards">Awards</a></li>
+<li>
+				<a href="/events">Events</a></li>
+<li>
+				<a href="/press-center">News</a></li>
+<li>
+				<a href="/careers">Careers</a></li>
+<li>
+				<a href="/contact">Contact</a></li>
+</ul></div>
+<div class="box_links right narrow">
+<h4>
+			Partners</h4>
+<ul><li>
+				<a href="/mulesoft-partners">Partner Program</a></li>
+</ul></div>
+<div class="box_links right center">
+<h4>
+			Resources</h4>
+<ul><li>
+				<a href="/webinars">Webinars</a></li>
+<li>
+				<a href="/esb-integration-resources">ESB and Integration</a></li>
+<li>
+				<a href="/saas-integration-resources">SaaS Integration</a></li>
+<li>
+				<a href="/understanding-apache-tomcat">Apache Tomcat</a></li>
+<li>
+				<a href="/tcat-server-resources">Tcat Resources</a></li>
+</ul></div>
+</div>
+<!-- sitemap --><div class="contact_info">
+<div class="contact">
+		<a class="logo" href="/contact">MuleSoft - integration at cloud speed</a></div>
+<div class="copyright">
+<div class="submenu">
+<ul><li class="first">
+					<a href="http://www.mulesoft.org">Community</a></li>
+<li>
+					<a href="http://blogs.mulesoft.org">Blog</a></li>
+<li>
+					<a href="/legal">Terms of use</a></li>
+<li>
+					<a href="/privacy-policy">Privacy</a></li>
+<li>
+					<a href="/contact">Contact</a></li>
+<li class="last">
+					1-866-228-9989</li>
+</ul><ul class="social"><li class="first">
+					<a class="linkedin" href="https://www.linkedin.com/company/www.mulesoft.com" target="_blank">LinkedIn</a></li>
+<li>
+					<a class="twitter" href="http://twitter.com/MuleSoft" target="_blank">Twitter</a></li>
+<li>
+					<a class="facebook" href="https://www.facebook.com/MuleSoft" target="_blank">Facebook</a></li>
+<li class="last">
+					<a class="email" href="mailto:info@mulesoft.com">E-mail</a></li>
+</ul></div>
+<p>MuleSoft provides the most widely used integration platform for connecting SaaS and enterprise applications in the cloud and on-premise. Delivered as a packaged integration experience, <a href="/cloudhub-ipaas-cloud-based-integration-demand">CloudHub™</a> and <a href="/mule-esb-open-source-esb">Mule ESB™</a> (Enterprise Service Bus) are built on proven open source technology for the fastest, most reliable on-premise and cloud integration without vendor lock-in.</p>
+</div>
+</div>
+<p><!-- contact_info --></p>
+
+</div><!-- /.block -->
+  </footer><!-- region__footer -->
+    </div> <!-- inner -->
+</div> <!-- footer -->
+</div><!-- /#page -->
+</div><!-- /#general-->
+</div><!-- /#wrapper-->
+  </body>
+</html>

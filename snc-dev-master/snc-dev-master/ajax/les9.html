@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Navigation Bar</title>
+<script type="text/javascript">
+<!-- start
+function goNext() {
+var currOffset = parseInt(parent.currTitle);
+if (currOffset < 5) {
+currOffset += 1;
+parent.entryForms.location.href = "dh" + currOffset + ".htm";
+parent.instructions.location.hash = "help" + currOffset;
+} else {
+alert("This is the last form.");
+}
+}
+function goPrev() {
+var currOffset = parseInt(parent.currTitle);
+if (currOffset > 1) {
+currOffset -= 1;
+parent.entryForms.location.href = "dh" + currOffset + ".htm";
+parent.instructions.location.hash = "help" + currOffset;
+} else {
+alert("This is the first form.");
+}
+}
+// end -->
+</script>
+</head>
+<body bgcolor="white">
+<map name="navigation">
+<area shape="rect" coords="25,80,66,116" href="javascript:goNext()" alt="go back">
+<area shape="rect" coords="24,125,67,161" href="javascript:goPrev()" alt="go back">
+</map>
+<img src="arrows.jpg" height="240" width="96" border="0" usemap="#navigation"
+alt="navigation bar">
+</body>
+</html>

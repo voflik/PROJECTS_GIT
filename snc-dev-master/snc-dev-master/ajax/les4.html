@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Writing to Subwindow</title>
+<script type="text/javascript">
+var newWindow;
+function makeNewWindow() {
+newWindow = window.open("","NEW WINDOW","status,height=200,width=300");
+}
+function subWrite() {
+// make new window if someone has closed it
+if (newWindow.closed) {
+makeNewWindow();
+}
+// bring subwindow to front
+newWindow.focus();
+// assemble content for new window
+var newContent = "<html><head><title>A New Doc</title></head>";
+newContent += "<body bgcolor='coral'><h1>This document is brand new.</h1>";
+newContent += "</body></html>";
+// write HTML to new window document
+newWindow.document.write(newContent);
+newWindow.document.close(); // close layout stream
+}
+function addDiv() {
+var newEl = document.createElement("p");
+}
+
+</script>
+</head>
+<body onload="makeNewWindow()">
+<form>
+<input type="button" value="Write to Subwindow" onclick="subWrite()">
+<input type="submit" value="add DIV" onclick="addDiv()">
+</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<head></head>
+
+<body>
+<form>
+<input type="text" id="entry" name="entry" value="" >
+<input type="button" name="btn" value="OK" onclick="getStateDate()">
+</form>
+<script type="text/javascript">
+var stateEntered = new Array(4);
+stateEntered [0] = 1819;
+stateEntered [1] = 1959;
+stateEntered [2] = 1912;
+stateEntered [3] = 1836;
+
+var USStates = new Array(4);
+USStates[0] = "Kuramiianko";
+USStates[1] = "alabala";
+USStates[2] = "opapopa";
+USStates[3] = "jororor";
+
+
+function getStateDate() {
+var selectedState = document.getElementById("entry").value;
+for (var i = 0; i < USStates.length; i++) {
+if (USStates[i] == selectedState) {
+break;
+}
+}
+alert(selectedState + " entered the Union in " + stateEntered[i] + ".");
+}
+</script>
+</body>
+</html>

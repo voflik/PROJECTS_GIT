@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>You can preselect an option with the selected attribute.</p>
+<script>
+
+var text=[];
+var elem = document.getElementById("here");
+
+
+
+function create(x){
+	for(var i=0;i < x.length;i++){
+			var newDiv = document.createElement('div').innerHTML = "XXXX";
+			x[i].appendChild(newDiv);
+			console.log(x[i]);
+		}
+}	
+	
+function go(x){
+	var val = x.value.toString();
+	console.log(val);
+	if(val!="dn"){
+		text.push(val);
+		
+		//ext += elem.createElement('h1').innerHTML=val;
+		//text+="\n";
+		console.log(text);
+	}
+	else {
+		var node=document.getElementById("here");//.appendChild('P');
+		var btn = document.createElement("DIV");
+    var t = document.createTextNode("CLICK ME");
+    btn.appendChild(t);
+    document.body.appendChild(btn);
+		node.innerHTML=text;
+		//create(text);
+		
+	}
+
+}
+//addElement();
+</script>
+  <select onchange="go(this)" >
+  <option value="dn">dn</option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+  <br><br>
+
+  <div id="here">
+
+  </div>
+    <div id="MyDiv">
+
+  </div>
+
+</body>
+</html>

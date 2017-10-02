@@ -1,0 +1,20 @@
+<html>
+<head>
+<script type="text/javascript">
+var aBoy = "Charlie Brown"; // global
+var hisDog = "Snoopy"; // global
+function demo() {
+// using improper design to demonstrate a point
+var hisDog = "Gromit"; // local version of hisDog
+var output = hisDog + " does not belong to " + aBoy + ".<br>";
+document.write(output);
+}
+</script>
+</head>
+<body>
+<script type="text/javascript">
+demo(); // runs as document loads
+document.write(hisDog + " belongs to " + aBoy + ".");
+</script>
+</body>
+</html>

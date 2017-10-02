@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script src="http://designmodo.com/image-slider-jquery-css3/js/jquery.nivo.slider.pack.js"></script>
+<script src="http://designmodo.com/demo/sliderjquerycss3/js/jquery.nivo.slider.pack.js"></script>
+<link rel="stylesheet" href="http://designmodo.com/image-slider-jquery-css3/css/nivo-slider.css" media="screen">
+<link rel="stylesheet" href="http://designmodo.com/demo/sliderjquerycss3/css/nivo-slider.css" media="screen">
+<link rel="stylesheet" href="http://designmodo.com/demo/sliderjquerycss3/css/futurico-theme.css" media="screen">
+  
+    <script>
+    $(function() {
+        $( "#menu" ).menu();
+    });
+    </script>
+    <style>
+    .ui-menu { width: 150px; }
+    </style>
+  
+<script>
+	$(window).load(function() {
+		$('#slider').nivoSlider({
+			effect: 'random',
+			directionNavHide: false,
+			pauseOnHover: true,
+			captionOpacity: 1,
+			prevText: '<',
+			nextText: '>'
+		});
+	});
+</script>
+  
+    <style>
+    #faces {position: absolute;}
+    #face1 {position: absolute;}
+    #face2 {position: absolute; display: none;}
+  </style>
+  
+  <script>
+    
+    $(document).ready(function(){
+      setInterval(function(){
+        $("#faces").animate({top: Math.random()*300, left: Math.random()*300});
+      },1000);
+      $("#faces").bind("mouseover", function(){
+        $(this).animate({top: Math.random()*100, left: Math.random()*100});
+      })
+    });
+    
+    $(document).ready(function(){
+      $("#faces").click(function(){
+        var score = $("#score").text()*1 + 100;
+        $("#score").text(score);
+        $("#score").animate({top: Math.random()*400, left: Math.random()*400});
+      });
+    });
+    
+  </script>
+  
+</head>
+<body>
+  <div id="header-left">
+    <ul id="menu">
+      <li><a href="#"><span class=""></span>New Game</a></li>
+      <li class="ui-state-disabled"><a href="#"><span class=""></span>Save Game</a></li>
+      <li class="ui-state-disabled"><a href="#"><span class=""></span>Load Game</a></li>
+      <li>
+        <a href="#">Options</a>
+        <ul>
+          <li><a href="#"><span class=""></span>Sound</a>
+            <ul>
+              <li class="ui-state-disabled"><a href="#"><span class=""></span>On</a></li>
+              <li><a href="#"><span class=""></span>Off</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><span class=""></span>Music</a>
+            <ul>
+              <li class="ui-state-disabled"><a href="#"><span class=""></span>On</a></li>
+              <li><a href="#"><span class=""></span>Off</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#"><span class=""></span>Hall of Fame</a></li>
+      <li><a href="#"><span class=""></span>Exit Game</a></li>
+    </ul>
+  </div>
+  <div id="header-right" style="position: relative; left: 600px; top: -200px;">
+    <div class="slider-wrapper futurico-theme">
+      <div id="slider" class="nivoSlider">
+        <img src="http://designmodo.com/demo/sliderjquerycss3/img/slide1.png" alt="">
+        <img src="http://designmodo.com/demo/sliderjquerycss3/img/slide2.png" alt="">
+        <img src="http://designmodo.com/demo/sliderjquerycss3/img/slide3.png" alt="">
+        <img src="http://designmodo.com/demo/sliderjquerycss3/img/slide4.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div id="bottom" style="position: relative; top: -100px;">
+    <div id="score-board">
+      Score: <div id="score">0</div>
+    </div>
+    <div id="faces">
+      <img src="http://cdn.redmondpie.com/wp-content/uploads/2011/05/Angry-Birds.png" width="122" height="114">
+    </div>
+  </div>
+</body>
+</html>

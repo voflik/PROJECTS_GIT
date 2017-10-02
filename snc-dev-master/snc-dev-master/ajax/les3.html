@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Writing to Same Doc</title>
+<script type="text/javascript">
+function reWrite() {
+// assemble content for new window
+var newContent = "<html><head><title>A New Doc</title></head>";
+newContent += "<body bgcolor='aqua'><h1>This document is brand new.</h1>";
+newContent += "Click the Back button to see original document.";
+newContent += "</body></html>";
+// write HTML to new window document
+document.write(newContent);
+document.close(); // close layout stream
+}
+</script>
+</head>
+<body>
+<form>
+<input type="button" value="Replace Content" onclick="reWrite()">
+</form>
+</body>
+</html>

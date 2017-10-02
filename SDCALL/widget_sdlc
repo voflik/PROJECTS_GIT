@@ -1,0 +1,15 @@
+function sections() {
+    return {
+		"Project Story Points by Sprints" : {"name" : "ppm_int_TeamStoryPointsBySprint"},
+        "Release Burndown" : {"name" : "sdlc_release_burndown_frame"},
+        "Sprint Burndown" : {"name" : "sdlc_sprint_burndown_frame"}
+    };
+ }
+
+function render() {
+   var name = renderer.getPreferences().get("name");
+   var gf = new GlideForm(renderer.getGC(), name, 0);
+   gf.setDirect(true);
+   gf.setRenderProperties(renderer.getRenderProperties());
+   return gf.getRenderedPage();
+}

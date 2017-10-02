@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.button:active, h1:active, a:active{
+    background-color: yellow;
+
+}
+.button:hover { 
+    background-color: yellow;
+}
+
+  @media only screen and (max-width: 480px){
+    .emailButton{
+      max-width:600px !important;
+      width:100% !important;
+    }
+
+    .emailButton a{
+      display:block !important;
+      font-size:18px !important;
+    }
+  }
+</style>
+</head>
+
+
+<body>
+
+
+  
+<select id="dropdown" name="select12">
+    <option>- Select -</option>
+    <option value="volvo">Volvo</option>
+    <option value="bmw">BMW</option>
+    <option value="benz">Benz</option>
+</select>
+
+<script>
+myFunction = function() {
+    var myWindow = window.open("", "", "width=200, height=100");
+    var dd = document.getElementById("dropdown");
+    myWindow.document.write(dd.options[dd.selectedIndex].innerHTML);
+}
+</script>
+<button onclick="myFunction()">Submit</button>
+<input type="button" id="target" value="click"/>
+
+
+<p>Click the button to add a "Kiwi" option at the end of the dropdown list.</p>
+
+<select  id="mySelect" multiple >
+    <option id="1" value="1">1</option>
+    <option id="2" value="2">2</option>
+	<option id="3" value="3">3</option>
+	<option id="5" value="4">5</option>
+	<option id="6" value="6">6</option>
+	<option id="8" value="7">8</option>
+	<option id="9" value="9">9</option>
+  </select>
+
+<br>
+<table>
+  <tr>
+    <th id="1" hidden></th>
+    <th id="2" hidden></th>
+	<th id="3" hidden></th>
+	<th id="5" hidden></th>
+	<th id="6" hidden></th>
+	<th id="8" hidden></th>
+	<th id="9" hidden></th>
+  </tr>
+  
+ </table>
+ 
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="button" bgcolor="#008000" style="padding: 12px 18px 12px 18px; -webkit-border-radius:3px; border-radius:3px" align="center"><a href="http://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; display: inline-block;">Approve &rarr;</a></td>
+        </tr>
+      </table>
+	<br/>
+	 <table border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td class="button"  bgcolor="#FF0000" style="padding: 12px 18px 12px 18px; -webkit-border-radius:3px; border-radius:3px" align="center"><a href="http://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; display: inline-block;">&nbsp; Deny &nbsp;&nbsp; &rarr;</a></td>
+       </tr>
+     </table> 
+    </td>
+  </tr>
+</table>
+<button class="kor" type="button" >Insert option</button>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("mySelect");
+    var option = document.createElement("option");
+    option.text = "Kiwi";
+    x.add(option);
+}
+
+var text = "purple haze";
+console.log("TEXT 1"+text["length"]);
+console.log("TEXT 2 "+text.length);
+</script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <div>
+        <!--[if mso]>
+          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://litmus.com" style="height:36px;v-text-anchor:middle;width:150px;" arcsize="5%" strokecolor="#EB7035" fillcolor="#EB7035">
+            <w:anchorlock/>
+            <center style="color:#ffffff;font-family:Helvetica, Arial,sans-serif;font-size:16px;">I am a button &rarr;</center>
+          </v:roundrect>
+        <![endif]-->
+        <a href="http://buttons.cm" style="background-color:#EB7035;border:1px solid #EB7035;border-radius:3px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:16px;line-height:44px;text-align:center;text-decoration:none;width:150px;-webkit-text-size-adjust:none;mso-hide:all;">I am a button &rarr;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<!-- START CENTERED BUTTON -->
+<center>
+  <table width="100%">
+    <tr>
+      <td>
+        <table border="0" cellpadding="0" cellspacing="0"> 
+          <tr>
+            <td height="20" width="100%" style="font-size: 20px; line-height: 20px;">
+            &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table border="0" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+          <tbody>
+          <tr>
+            <td align="center">
+              <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                <tr>
+                  <td align="center" bgcolor="#87be45" width="150" style="-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;">
+                    <a href="http://www.example.com" style="padding: 10px;width:150px;display: block;text-decoration: none;border:0;text-align: center;font-weight: bold;font-size: 15px;font-family: sans-serif;color: #ffffff;background: #87be45;border: 1px solid #87be45;-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;line-height:17px;" class="button_link">
+                      Get Started!
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0"> 
+          <tr>
+            <td height="20" width="100%" style="font-size: 20px; line-height: 20px;">
+            &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</center>
+<!-- END CENTERED BUTTON -->
+<!-- START LEFT BUTTON -->
+  <table width="100%">
+    <tr>
+      <td>
+        <table border="0" cellpadding="0" cellspacing="0"> 
+          <tr>
+            <td height="20" width="100%" style="font-size: 20px; line-height: 20px;">
+            &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table border="0" align="left" cellpadding="0" cellspacing="0">
+          <tbody>
+          <tr>
+            <td align="left">
+              <table border="0" cellpadding="0" cellspacing="0" width="150">
+                <tr>
+                  <td align="center" bgcolor="#87be45" width="150" style="-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;">
+                    <a href="http://www.example.com" 
+                    style="padding: 10px;width:150px;display: block;text-decoration: none;border:0;text-align: center;font-weight: bold;font-size: 15px;font-family: sans-serif;color: #ffffff;background: #87be45;border: 1px solid #87be45;-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;line-height:17px;" class="button_link">
+                    Get Started!
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0"> 
+          <tr>
+            <td height="20" width="100%" style="font-size: 20px; line-height: 20px;">
+            &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+<!-- END LEFT BUTTON -->
+<table border="0" cellpadding="0" cellspacing="0" class="emailButton" style="border-radius:3px; background-color:#6DC6DD;">
+  <tr>
+    <td align="center" valign="middle" class="emailButtonContent" style="padding-top:15px; padding-right:30px; padding-bottom:15px; padding-left:30px;">
+      <a href="..." target="_blank" style="color:#FFFFFF; font-family:Helvetica, Arial, sans-serif; font-size:16px; font-weight:bold; text-decoration:none;">Buy Now</a>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center" style="-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;" bgcolor="#e9703e"><a href="https://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 12px 18px; border: 1px solid #e9703e; display: inline-block;">I am a button &rarr;</a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- USE THESE -->
+
+<div><!--[if mso]>
+  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://paysafe.com" style="height:38px;v-text-anchor:middle;width:100px;" arcsize="11%" strokecolor="#76a871" fillcolor="#58ee2b">
+    <w:anchorlock/>
+    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">Deny</center>
+  </v:roundrect>
+<![endif]--><a href="http://paysafe.com"
+style="background-color:#58ee2b;border:1px solid #76a871;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:38px;text-align:center;text-decoration:none;width:100px;-webkit-text-size-adjust:none;mso-hide:all;">Approve</a></div>
+< br/>
+<div><!--[if mso]>
+  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://paysafe.com" style="height:38px;v-text-anchor:middle;width:100px;" arcsize="11%" strokecolor="#a87173" fillcolor="#ee2b32">
+    <w:anchorlock/>
+    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">Deny</center>
+  </v:roundrect>
+<![endif]--><a href="http://paysafe.com"
+style="background-color:#ee2b32;border:1px solid #a87173;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:38px;text-align:center;text-decoration:none;width:100px;-webkit-text-size-adjust:none;mso-hide:all;">Reject</a></div>
+</body>
+</html>

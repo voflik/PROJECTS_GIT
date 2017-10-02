@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Wheel o’ Fortuna</title>
+<script type="text/javascript">
+function countE(form) {
+var count = 0;
+var inputString = form.mainstring.value.toLowerCase();
+for(i=0;i<=inputString.lenght;i++) {
+if(inputString.indexOf("e") ) { 
+count++;
+}}
+var msg = "The string has " + count;
+msg += " instances of the letter e.";
+alert(msg);
+}
+</script>
+</head>
+<body>
+<form>
+Enter any string: <input type="text" name="mainstring" size="30"><br>
+<input type="button" value="Count the Es" onclick="countE(this.form)">
+</form>
+</body>
+</html>

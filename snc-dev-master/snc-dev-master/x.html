@@ -1,0 +1,290 @@
+CTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<!-- style="overflow:hidden; width:100%;" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>NISET WebLab - Tests results</title>
+<link rel="icon" href="http://nisetbg.com/weblab/images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://nisetbg.com/weblab/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="http://nisetbg.com/weblab/style.css" />
+<script language="JavaScript" type="text/javascript">
+function doPrintIzsl()
+{
+var t
+var but_but_pr = document.getElementById("print_but_izsl");
+var PDF_show = document.getElementById("PDF_show");
+var browserName=navigator.appName;
+var browserVer=navigator.appVersion;
+var MSIEOffset = browserVer.indexOf("MSIE ");
+var IEver
+
+    if (MSIEOffset == -1) {
+        IEver = -1;
+    } else {
+        IEver = browserVer.substring(MSIEOffset + 5, MSIEOffset + 6 );
+    };
+    if ((browserName == "Microsoft Internet Explorer")
+        && (IEver < 7 ) ) {
+    alert("Много стара версия на Microsoft Internet Explorer. Обновете браузъра, сменете браузъра или при печат изберете [Preferences]-Basics-Orientation->Landscape.");
+
+    } ;
+
+    but_but_pr.style.visibility = "hidden";
+    PDF_show.style.visibility = "hidden";
+
+    window.print();
+    setTimeout ("but_but_pr.style.visibility = 'visible'; ",5000);
+    setTimeout ("PDF_show.style.visibility = 'visible'; ",5000);
+}
+
+</script>
+</head>
+
+<body> <!-- onload="window.print()" -->
+
+<table style="width:1100px; border-width:0px; margin:0 auto;" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="main_border">
+			<table style="width:100%; height:110px;" cellpadding="0" cellspacing="0">
+				<tr>
+					<td rowspan="2" style="width:369px; height:inherit; text-align:center; vertical-align:middle;">
+						<a href='http://sanalab-bg.com' target='_blank' > <img style='border:0px; ' src= 'http://nisetbg.com/weblab/images/logo_sana3.gif'  /> </a>
+                        <!--src="http://nisetbg.com/weblab/images/logo.gif" -->
+
+					</td>
+					<td style="height:90px; font-size:10pt; text-align:center; vertical-align:middle; font-weight:bolder;">
+						Л А Б О Р А Т О Р Н И &nbsp;&nbsp;&nbsp; Р Е З У Л Т А Т И
+                        <br />
+                        <form method="post" name="printizslform">
+                        <input type="button" name="print_but_izsl" id="print_but_izsl" onclick="doPrintIzsl()" value="Печат"/>
+                        </form>
+						<br />
+						<a id="PDF_show" style="font-size:8pt; font-style:italic; text-decoration: underline;" href="http://nisetbg.com/weblab/izsl_pdf.php?pdfIzsl=732998" target='_blank' >Преглед на изследването в .PDF </a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr style="height:5px">
+		<td>
+      &nbsp;
+		</td>
+	</tr>
+ </table>
+ <table class="main_border" style="width:1100px; margin:0 auto;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="izsl_border" style="width:100%; text-align:center; vertical-align:top;" colspan="5">
+                    <table style="width:100%; text-align:center;" cellpadding="0" cellspacing="5">
+                        <tr>
+                            <td style="width:100%; vertical-align:middle; text-align:center; font-weight:bold;">
+                                    САНА СМДЛ   София (Възраждане)   ул/бул Българска морава № 83
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="izsl_border" colspan="5" style="width:100%; vertical-align:top; text-align:center;">
+
+                    <table style="width:100%;"  cellpadding="2" cellspacing="2" >
+                        <tr>
+                          <td style="width:15%; vertical-align:bottom; text-align:right; font-size: 8pt;">
+                                    Извършено на:
+                          </td>
+                          <td style="width:36%; vertical-align:bottom; text-align:left; font-size: 10pt;">
+                                    06.06.2012г.&nbsp;&nbsp; НМДД № 854&nbsp;&nbsp; АЛ № 1274
+                          </td>
+                          <td style="width:12%; vertical-align:bottom; text-align:right; font-size: 8pt;">
+                                    Пациент:
+                          </td>
+                          <td style="width:36%; vertical-align:bottom; text-align:left; font-size: 10pt;  font-weight:bold;">
+                                    Румен Георгиев Клифов &nbsp; №:561552
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="vertical-align:bottom; text-align:right; font-size: 8pt; ">
+                                  Извършил/обработил:
+                          </td>
+                          <td style="vertical-align:bottom;text-align:left; font-size: 10pt;">
+                                    д-р Илиан Николаев Ашламаджиев
+                          </td>
+                          <td style="vertical-align:bottom; text-align:right; font-size: 8pt; ">
+                                    Лаб. РЦЗ:
+                          </td>
+                          <td style="vertical-align:bottom;text-align:left; font-size: 10pt;">
+                                    2203141501
+                          </td>
+                           </tr>
+                        <tr>
+                          <td style="vertical-align:bottom; text-align:right; font-size: 8pt;">
+                                    Забележка:
+                          </td>
+                          <td colspan="3" style="vertical-align:bottom; text-align:left;  font-size:10pt;">
+                                    
+                          </td>
+                       </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="izsl_border" style="width:54%; vertical-align:middle; text-align:center; font-weight:bold; padding:3px;">
+                Име на тест (изследване)
+                </td>
+                <td class="izsl_border" style="width:20%;vertical-align:middle; text-align:center; font-weight:bold; padding:3px;">
+                Резултат
+                </td>
+                <td class="izsl_border" style="width:10%;vertical-align:middle; text-align:center; font-weight:bold; padding:3px;">
+                Единици
+                </td>
+                <td class="izsl_border" colspan="2" style="vertical-align:middle; text-align:center; font-weight:bold; padding:3px;">
+                Референтни граници от - до
+                </td>
+            </tr>
+            
+            <!-- BEGIN tests_rez -->
+            <tr>
+                <td class="izsl_border" style="width:54%; vertical-align:top; text-align:left; padding:3px;">
+                fT4
+                </td>
+                <td class="izsl_border" style="width:20%; vertical-align:top; text-align:right; padding:3px;">
+                 - 
+                </td>
+                <td class="izsl_border" style="width:10%; vertical-align:top; text-align:center; padding:3px;">
+                pmol/l
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                 - 
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                 - 
+                </td>
+            </tr>
+            <!-- END tests_rez -->
+            
+            <!-- BEGIN tests_rez -->
+            <tr>
+                <td class="izsl_border" style="width:54%; vertical-align:top; text-align:left; padding:3px;">
+                <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;възрастни</i>
+                </td>
+                <td class="izsl_border" style="width:20%; vertical-align:top; text-align:right; padding:3px;">
+                 
+                </td>
+                <td class="izsl_border" style="width:10%; vertical-align:top; text-align:center; padding:3px;">
+                
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                10.16
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                25.40
+                </td>
+            </tr>
+            <!-- END tests_rez -->
+            
+            <!-- BEGIN tests_rez -->
+            <tr>
+                <td class="izsl_border" style="width:54%; vertical-align:top; text-align:left; padding:3px;">
+                TSH
+                </td>
+                <td class="izsl_border" style="width:20%; vertical-align:top; text-align:right; padding:3px;">
+                 - 
+                </td>
+                <td class="izsl_border" style="width:10%; vertical-align:top; text-align:center; padding:3px;">
+                µIU/ml
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                0.50
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                8.90
+                </td>
+            </tr>
+            <!-- END tests_rez -->
+            
+            <!-- BEGIN tests_rez -->
+            <tr>
+                <td class="izsl_border" style="width:54%; vertical-align:top; text-align:left; padding:3px;">
+                <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;възрастни- 21 г. до 54 г.</i>
+                </td>
+                <td class="izsl_border" style="width:20%; vertical-align:top; text-align:right; padding:3px;">
+                 
+                </td>
+                <td class="izsl_border" style="width:10%; vertical-align:top; text-align:center; padding:3px;">
+                
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                0.40
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                4.20
+                </td>
+            </tr>
+            <!-- END tests_rez -->
+            
+            <!-- BEGIN tests_rez -->
+            <tr>
+                <td class="izsl_border" style="width:54%; vertical-align:top; text-align:left; padding:3px;">
+                <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;деца</i>
+                </td>
+                <td class="izsl_border" style="width:20%; vertical-align:top; text-align:right; padding:3px;">
+                 
+                </td>
+                <td class="izsl_border" style="width:10%; vertical-align:top; text-align:center; padding:3px;">
+                
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                0.40
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                7.00
+                </td>
+            </tr>
+            <!-- END tests_rez -->
+            
+            <!-- BEGIN tests_rez -->
+            <tr>
+                <td class="izsl_border" style="width:54%; vertical-align:top; text-align:left; padding:3px;">
+                <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;възрастни 55 г. до 87 г.</i>
+                </td>
+                <td class="izsl_border" style="width:20%; vertical-align:top; text-align:right; padding:3px;">
+                 
+                </td>
+                <td class="izsl_border" style="width:10%; vertical-align:top; text-align:center; padding:3px;">
+                
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                0.50
+                </td>
+                <td class="izsl_border" style="width:8%; vertical-align:top; text-align:right; padding:3px;">
+                8.90
+                </td>
+            </tr>
+            <!-- END tests_rez -->
+            
+            <tr>
+				<td class="main_border" colspan="5" style="width:100%; vertical-align:top; text-align:center;">
+
+           	        <table style="width:100%; text-align:center;" cellspacing="3">
+            		    <tr>
+                          <td style="width:100%; vertical-align:bottom; text-align:center; ">
+
+                          </td>
+                   	    </tr>
+                        <tr>
+                          <td style="width:100%; vertical-align:bottom; text-align:center; font-style:italic;">
+                             Внимание! Резултатът от изследване не е диагноза, а само помощ за поставяне на такава. <br />
+                             Препоръчваме Ви да се обърнете към лекуващия лекар за тълкуване на дадени резултати.
+                          </td>
+                   	    </tr>
+                    </table>
+                </td>
+        </tr>
+</table>
+<br />
+<hr size="1px" style="width:1100px; height:2px; border-width:0; color:gray; background-color:gray;" />
+<div style="font-size:10px; text-align:center;">
+Лабораторна информационна система НИСЕТ е-Резултати <br />
+ &copy; 2008-2011 NISET ltd.
+</div>
+</body>
+</html>

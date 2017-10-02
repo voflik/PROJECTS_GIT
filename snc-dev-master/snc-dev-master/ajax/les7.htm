@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Beatle Picker</title>
+<script type="text/javascript">
+function processData(form) {
+for (var i = 0; i < form.Beatles.length; i++) {
+if (form.Beatles[i].checked) {
+break
+}
+}
+// assign values to variables for convenience
+var beatle = form.Beatles[i].value
+var song = form.song.value
+alert("Checking whether " + song + " features " + beatle + "..")
+}
+function verifySong(entry) {
+var song = entry.value
+alert("Checking whether " + song + " is a Beatles tune...")
+}
+</script>
+</head>
+<body>
+<form onsubmit="return false">
+<p>Choose your favorite Beatle:
+<input type="radio" name="Beatles" value="John Lennon" checked>John
+<input type="radio" name="Beatles" value="Paul McCartney">Paul
+<input type="radio" name="Beatles" value="George Harrison">George
+<input type="radio" name="Beatles" value="Ringo Starr">Ringo</p>
+<p>Enter the name of your favorite Beatles song:<br>
+<input type="text" name="song" value = "Eleanor Rigby" onchange="verifySong(this)">
+<input type="button" name="process" value="Process Request..."
+onclick="processData(this.form)"></p>
+</form>
+</body>
+</html>
